@@ -21,8 +21,8 @@
 
 
 
-\usepgfplotslibrary{external} 
-\tikzexternalize[prefix=temp_graphics/]
+%\usepgfplotslibrary{external} 
+%\tikzexternalize[prefix=temp_graphics/]
 
 \usepackage{geometry}
 \geometry{
@@ -89,14 +89,14 @@ Dieser Vorlesungsteil widmet sich den Fourierreihen. Diese Reihenentwicklung die
 und Kosinusfunktionen darzustellen.
 \begin{enumerate}
 \item Satz von Dirichlet
-\item Bestimmung der notwendigen Integrale
+\item Bestimmung der Fourierkoeffizienten
 \item Beispiele
 \end{enumerate}
 
 \end{frame}
 
-
-\begin{frame}
+\section{Satz von Dirichlet}
+\begin{frame}{\thesection .) Satz von Dirichlet}
 \begin{alertblock}{Satz von Dirichlet}
 $f(t)$ sei eine periodische Funktion mit der Periode $T$, die folgende Bedingungen erfüllt:
 \begin{enumerate}
@@ -110,7 +110,7 @@ hat einen \emph{endlichen} Wert
 \end{enumerate}
 Dann kann die Funktion $f(t)$ als \emph{Fourierreihe} der folgenden Form dargestellt werden.
 \[
-f(t)=\frac{a_0}{2}+\suml_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\suml_{k=1}^{\infty}b_k\sin(k\omega_0 t)
+f(t)=\frac{a_0}{2}+\suml_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\suml_{k=1}^{\infty}b_k\sin(k\omega_0 t) \mitm \omega_0=\frac{2\pi}{T}
 \]
 An Stellen, an denen die Funktion stetig ist, konvergiert die Fourierreihe gegen den Funktionswert. An Sprungstellen konvergiert die Funktion 
 gegen den Mittelwert des rechts- und linksseitigen Grenzwertes der Funktion an der Sprungstelle.
@@ -118,13 +118,54 @@ gegen den Mittelwert des rechts- und linksseitigen Grenzwertes der Funktion an d
 \end{frame}
 
 
+\section{Koeffizienten}
+\begin{frame}{\thesection .)  Bestimmung der Fourierkoeffizienten}
+    \begin{itemize}
+        \item \[
+        \intl_t^{t+T}\sin k\omega_0 t \sin l\omega_0 t  \diff t   
+        \]
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+            \draw [step = .5cm,gray] (0,0) grid (13,17);
+            \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\thesection .)  Bestimmung der Fourierkoeffizienten}
+    \begin{itemize}
+        \item \[
+        \intl_t^{t+T}\cos k\omega_0 t \sin l\omega_0 t  \diff t   
+        \]
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+            \draw [step = .5cm,gray] (0,0) grid (13,17);
+            \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\thesection .)  Bestimmung der Fourierkoeffizienten}
+    \begin{itemize}
+        \item \[
+        \intl_t^{t+T}\cos k\omega_0 t \cos l\omega_0 t  \diff t   
+        \]
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+            \draw [step = .5cm,gray] (0,0) grid (13,17);
+            \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{frame}
+
 
 %\begin{center}
 %\begin{tikzpicture}[scale = 1.4]
-%\draw [step = .5cm,gray] (0,0) grid (13,12);
+%\draw [step = .5cm,gray] (0,0) grid (13,14);
 %\end{tikzpicture}
 %\end{center}
-
 
 
 \end{document}
