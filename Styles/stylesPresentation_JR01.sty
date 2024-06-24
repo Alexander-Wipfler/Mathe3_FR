@@ -1,0 +1,36 @@
+%\usepackage[colorlinks=true,linkcolor=blue,citecolor=black,filecolor=black,urlcolor=blue]{hyperref}
+\usepackage{hyperref}
+
+% two columns
+\newcommand{\twocol}[4]{\begin{minipage}[t]{#1}\vspace*{-4.5mm}#3\end{minipage} ~ \begin{minipage}[t]{#2}\vspace*{-4.5mm}#4\end{minipage}} % width1, width2, content1, content2
+\newcommand{\twocolgold}[2]{\begin{minipage}[t]{0.591\textwidth}\vspace*{-4.5mm}#1\end{minipage} ~ \begin{minipage}[t]{0.365\textwidth}\vspace*{-4.5mm}#2\end{minipage}} % content1, content2
+\newcommand{\twocolhalf}[2]{\begin{minipage}[t]{0.48\textwidth}\vspace*{-4.5mm}#1\end{minipage} ~ \begin{minipage}[t]{0.48\textwidth}\vspace*{-4.5mm}#2\end{minipage}} % content1, content2
+
+% section/subsection page
+\newcommand{\sectionframe}[1]{%
+\begin{frame}{~}
+\vspace*{10mm}
+\begin{center}
+\cboxgr{110mm}{\centering\vspace{3mm}\hrule\hrule\hrule\vspace*{10mm}
+{\Huge\bf \thesection \, #1}
+\vspace*{10mm}\hrule\hrule\hrule\vspace{3mm}}
+\end{center}
+\end{frame}
+}
+\newcommand{\subsectionframe}[2]{%
+\begin{frame}{~}
+\vspace*{8mm}
+\begin{center}
+\cboxgr{110mm}{\centering\vspace{3mm}\hrule\hrule\hrule\vspace*{8mm}
+{\normalsize #1} \\[3mm]
+{\Large\bf \thesection.\thesubsection \, #2}
+\vspace*{8mm}\hrule\hrule\hrule\vspace{3mm}}
+\end{center}
+\end{frame}
+}
+
+% english translation
+\newcommand{\engl}[1]{(\textcolor{magenta}{engl. #1})}
+
+% image copyrights
+\newcommand{\imrights}[3]{\vspace{#1}\hspace*{#2}\rotatebox{-90}{\tiny \color{gray50}{\fontsize{6}{6} \selectfont Abb.: #3}}}

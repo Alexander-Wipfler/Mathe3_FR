@@ -1,0 +1,130 @@
+\documentclass[t,14pt]{beamer}
+
+%*****************************************************************************%
+\usepackage{Styles/stylesGeneral_JR01}
+\usepackage{Styles/stylesPresentation_JR01}
+\usepackage{german}
+\usepackage{amsmath}                                                          	% Zurücksetzen der Tabellen- und Abbildungsnummerierung je Sektion
+\usepackage{amssymb}															% erforderlich für mathbb Definitionsbereich Reeele Zahlen...
+
+
+
+\usepackage{babelbib}
+
+\usepackage{stackrel}
+\usepackage{array}
+
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes,arrows,arrows.meta,decorations,decorations.pathmorphing,decorations.pathreplacing,patterns,matrix}
+\usetikzlibrary{babel,angles,quotes,calc,intersections,snakes}
+
+
+
+\usepgfplotslibrary{external} 
+\tikzexternalize[prefix=temp_graphics/]
+
+\usepackage{geometry}
+\geometry{
+    paperwidth=210mm,
+    paperheight=297mm,
+    portrait,
+%    left=25mm,
+%    right=20mm,
+%    top=10mm,
+%    bottom=20mm
+}
+
+
+\usepackage[framemethod=default]{mdframed}
+\usepackage{hyperref}
+
+
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d\hspace{-1pt}}}	% Differentialzeichen
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
+\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
+\newcommand*\euler{\mathrm{e}} % Zahl e
+\newcommand{\vek}[1]{\textit{\textbf{#1}}}
+\newcommand{\vekgr}[1]{\mathit{\mathbf{#1}}}
+\newcommand{\Rg}{\textnormal{Rg}}
+\newcommand{\und}{\quad\textnormal{und}\quad}
+\newcommand{\mitm}{\quad\textnormal{mit}\quad}
+\newcommand{\fuer}{\quad\textnormal{für}\quad}
+\newcommand{\sonst}{\quad\textnormal{sonst}\quad}
+
+
+
+\input{Styles/stylesBeamer_JR01.tex}
+
+%*****************************************************************************%
+\title[]{Vorlesung Mathematik 3}
+\subtitle{Fourierreihen - Reelle Darstellung}
+\author[]{Prof. Dr. A. Wipfler\\ E-Mail: \textcolor{blue}{wipfler@dhbw-ravensburg.de}}
+\institute[]{{\footnotesize Duale Hochschule Baden-W\"urttemberg, Ravensburg/Friedrichshafen}}
+\date[]{Ausgabestand: \today}
+\subject{Vorlesung Mathematik 3}
+
+%\pgfdeclareimage[height=0.5cm]{university-logo}{Styles/DHBW_Logo_lang_2022.png}
+%\logo{\pgfuseimage{university-logo}}
+
+%*****************************************************************************%
+\begin{document}
+
+%-----------------------------------------------------------------------------%
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+
+
+%-----------------------------------------------------------------------------%
+\begin{frame}{Inhalt der Vorlesung}
+
+
+Dieser Vorlesungsteil widmet sich den Fourierreihen. Diese Reihenentwicklung dient dazu, \emph{periodische} Funktionen als Überlagerung von Sinus- 
+und Kosinusfunktionen darzustellen.
+\begin{enumerate}
+\item Satz von Dirichlet
+\item Bestimmung der notwendigen Integrale
+\item Beispiele
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{alertblock}{Satz von Dirichlet}
+$f(t)$ sei eine periodische Funktion mit der Periode $T$, die folgende Bedingungen erfüllt:
+\begin{enumerate}
+\item $f(t)$ hat im Intervall $[t,t+T]$ eine \emph{endliche} Anzahl an Sprungstellen
+\item $f(t)$ hat im Intervall $[t,t+T]$ eine \emph{endliche} Anzahl an Maxima und Minima
+\item Das Integral
+\[
+\intl_{t_0}^{t_0+T}|f(t)|\diff t 
+\]
+hat einen \emph{endlichen} Wert
+\end{enumerate}
+Dann kann die Funktion $f(t)$ als \emph{Fourierreihe} der folgenden Form dargestellt werden.
+\[
+f(t)=\frac{a_0}{2}+\suml_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\suml_{k=1}^{\infty}b_k\sin(k\omega_0 t)
+\]
+An Stellen, an denen die Funktion stetig ist, konvergiert die Fourierreihe gegen den Funktionswert. An Sprungstellen konvergiert die Funktion 
+gegen den Mittelwert des rechts- und linksseitigen Grenzwertes der Funktion an der Sprungstelle.
+\end{alertblock}
+\end{frame}
+
+
+
+%\begin{center}
+%\begin{tikzpicture}[scale = 1.4]
+%\draw [step = .5cm,gray] (0,0) grid (13,12);
+%\end{tikzpicture}
+%\end{center}
+
+
+
+\end{document}

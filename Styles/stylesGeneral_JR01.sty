@@ -1,0 +1,204 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+%\usepackage{wasysym}
+%\usepackage{arydshln}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage[official]{eurosym}
+\usepackage{pgfplots} \pgfplotsset{compat=1.15}
+%\usepackage{musixtex}
+%\usepackage{array}
+%\usepackage{multirow}
+\usepackage{mathrsfs}
+%\usepackage{bbding}
+%\usepackage{psfrag}
+%\usepackage{epsfig}
+%\usepackage{pstricks,pst-node,pst-text,pst-3d,pst-plot}
+%\usepackage{fancybox}
+%\usepackage{subfigure}
+%\usepackage[amsmath,thmmarks]{ntheorem}
+%\usepackage{bm} 
+\usepackage[english,german]{babel}
+
+%\setlength{\dashlinedash}{1pt} \setlength{\dashlinegap}{3pt}
+
+\renewcommand{\bf}{\bfseries}
+%\newcommand{\md}{\mdseries}
+\renewcommand{\sf}{\sffamily}
+%\renewcommand{\rm}{\rmfamily}
+%\renewcommand{\tt}{\ttfamily}
+%\newcommand{\up}{\upshape}
+%\renewcommand{\it}{\itshape}
+%\renewcommand{\sl}{\slshape}
+%\renewcommand{\sc}{\scshape}
+
+\newcommand{\etal}{{\em et al.~}}
+\newcommand{\matlab}{{\sc Matlab}}
+
+%\renewcommand{\ds}[1]{$\displaystyle #1$}
+\newcommand{\ds}[1]{$\displaystyle #1$}
+
+\newcommand{\bbrac}[1]{\left(#1\right)}
+\newcommand{\mato}[2]{\left[\begin{array}{#1} #2 \end{array}\right]}
+\newcommand{\matos}[2]{{\small\left[\begin{array}{#1} #2 \end{array}\right]}}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\intl}{\int\limits}
+\newcommand{\liml}{\lim\limits}
+\newcommand{\maxl}{\max\limits}
+\newcommand{\minl}{\min\limits}
+\newcommand{\supl}{\sup\limits}
+\newcommand{\infl}{\inf\limits}
+\newcommand{\intd}{\; \mathrm{d}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddttwo}{\frac{\mathrm{d}^2}{\mathrm{d}t^2}}
+\newcommand{\ddtthree}{\frac{\mathrm{d}^3}{\mathrm{d}t^3}}
+\newcommand{\mi}{\hspace{.4pt}\mathrm{i}}
+\newcommand{\mj}{\hspace{.4pt}\mathrm{j}}
+\newcommand{\mk}{\hspace{.4pt}\mathrm{k}}
+\newcommand{\me}{\hspace{.4pt}\mathrm{e}}
+\newcommand{\mem}{\hspace{.4pt}\mathrm{e}\textrm{-}}
+\newcommand{\md}{\mathrm{d}}
+%\renewcommand{\H}{{\textup{\scriptsize H}}}
+%\newcommand{\T}{{\textup{\scriptsize T}}}
+\renewcommand{\H}{^{\mathrm{H}}}
+\newcommand{\T}{^{\mathrm{T}}}
+
+\newcommand{\corresp}{\;\circ\!\!-\!\!\!-\!\!\!\bullet\;}
+
+\newcommand{\fboxx}{\framebox[1.1\width]}
+\newcommand{\cbox}[3]{{\colorbox{#1}{\parbox{#2}{#3}}}} % color, width, content (color box)
+\newcommand{\fcbox}[3]{{\fbox{\colorbox{#1}{\parbox{#2}{#3}}}}} % color, width, content (color frame box)
+\newcommand{\fboxw}[2]{{\fbox{\parbox{#1}{#2}}}} % width, content (white/frame)
+\newcommand{\cboxb}[2]{{\colorbox{lightblue}{\parbox{#1}{#2}}}} % width, content (light blue/no frame)
+\newcommand{\cboxgr}[2]{{\colorbox{lightgreen}{\parbox{#1}{#2}}}} % width, content (light green/no frame)
+\newcommand{\cboxg}[2]{{\colorbox{gray10}{\parbox{#1}{#2}}}} % width, content (grey/no frame)
+\newcommand{\fcboxb}[2]{{\fbox{\colorbox{lightblue}{\parbox{#1}{#2}}}}} % width, content (light blue/frame)
+
+%\setlength{\dashlinedash}{2pt} \setlength{\dashlinegap}{2pt}
+
+\newcommand{\Hinf}{\mathcal{H}_\infty}
+\newcommand{\RHinf}{\mathcal{RH}_\infty}
+\newcommand{\Htwo}{\mathcal{H}_2}
+\newcommand{\RHtwo}{\mathcal{RH}_2}
+\newcommand{\Ltwo}{\mathcal{L}_2}
+\newcommand{\ltwo}{\ell_2}
+\newcommand{\Lone}{\mathcal{L}_1}
+\newcommand{\lone}{\ell_1}
+\newcommand{\Linf}{\mathcal{L}_\infty}
+\newcommand{\linf}{\ell_\infty}
+\newcommand{\mN}{\mathbb N}
+\newcommand{\mZ}{\mathbb Z}
+\newcommand{\mR}{\mathbb R}
+\newcommand{\mC}{\mathbb C}
+\newcommand{\srF}{\mathscr F}
+\newcommand{\srL}{\mathscr L}
+\newcommand{\srZ}{\mathscr Z}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\mc}{\mathcal}
+%\newcommand{\mcc}{\curly}
+%\newcommand{\ha}{\hat}
+%\newcommand{\ba}{\bar}
+\newcommand{\ti}{\tilde}
+\newcommand{\ul}{\underline}
+\newcommand{\ol}{\overline}
+\newcommand{\wti}{\widetilde}
+\newcommand{\wha}{\widehat}
+\newcommand{\inv}{^{-1}}
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\degr}{^{\circ}}
+\newcommand{\equivhat}{\stackrel{\wedge}{=}}
+
+% formal sections
+\renewcommand{\proofname}{\textit{Proof}}
+\newcommand{\sketchname}{\textit{Sketch of proof}}
+\newcommand{\remarkname}{\textit{Remark}}
+\newcommand{\qedsymbola}{\qedsymbol{$\blacksquare$}}
+\newcommand{\qedsymbolb}{\qedsymbol{$\square$}}
+%\newcommand{\qedsymbolproof}{\hfill\text{\small $\blacksquare$}}
+%\newcommand{\qedsymboldef}{\qedsymbolb\qed\qedsymbola}
+%\newcommand{\mbbox}{\ensuremath{\hfill \text{{\small $\blacksquare$}}}}
+%\newcommand{\mwbox}{\ensuremath{\hfill \text{{\small $\square$}}}}
+%\renewcommand{\qedsymbol}{\small $\blacksquare$}%{\rule{.45em}{.45em}}
+
+% math operators
+\newcommand{\diag}{\mathop{\mathrm{diag}}}
+\newcommand{\col}{\mathop{\mathrm{col}}}
+\newcommand{\chull}{\mathop{\mathrm{Co}}}
+\newcommand{\rank}{\mathop{\mathrm{rank}}}
+\newcommand{\normalrank}{\mathop{\mathrm{normalrank}}}
+\newcommand{\trace}{\mathop{\mathrm{trace}}}
+\newcommand{\ess}{\mathop{\mathrm{ess}}}
+\newcommand{\arc}{\mathop{\mathrm{arc}}}
+\newcommand{\re}{\mathop{\mathrm{Re}}}
+\newcommand{\im}{\mathop{\mathrm{Im}}}
+\newcommand{\image}{\mathop{\mathrm{Image}}}
+\newcommand{\kerlong}{\mathop{\mathrm{Kernel}}}
+\newcommand{\rot}{\mathop{\mathrm{rot}}}
+\newcommand{\grad}{\mathop{\mathrm{grad}}}
+\newcommand{\ord}{\mathop{\mathrm{ord}}}
+\newcommand{\sat}{\mathop{\mathrm{sat}}}
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}}
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\atantwo}{atan2}
+
+% music
+%\newcommand{\gclef}{\raisebox{-0.3em}{\includegraphics[height=1.2em]{D:/Daten_Jochen/RieberMusic/RepoRMtrunk/DbBib/images/violinschluessel.jpg}}\,}
+%\newcommand{\fclef}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{D:/Daten_Jochen/RieberMusic/RepoRMtrunk/DbBib/images/bassschluessel.jpg}}\,}
+%\newcommand{\chord}[2]{\(\rm{#1}^{\rm{#2}}\)}
+%\newcommand{\chordtop}[3]{\(\overset{\!\!\mathrm{#3}}{\mathrm{#1}^{\mathrm{#2}}}\)}
+%\newcommand{\chordbass}[3]{\(\underset{\!\!\mathrm{#3}}{\mathrm{#1}^{\mathrm{#2}}}\)}
+%\newcommand{\chordflat}[3]{\(\mathrm{#1}^{\mathrm{#2}}/\,{\mathrm{#3}}\)}
+
+%%% COLOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{white}{rgb}{1, 1, 1}
+\definecolor{gray10}{gray}{0.9}
+\definecolor{gray70}{gray}{0.3}
+\definecolor{gray50}{gray}{0.5}
+\definecolor{black}{rgb}{0, 0, 0}
+\definecolor{lightblue}{rgb}{0.88, 0.93, 1}
+\definecolor{lightgreen}{rgb}{0.9, 1, 0.9}
+\definecolor{lightmagenta}{rgb}{0.9, 0.8, 0.95}
+\definecolor{darkgreen}{rgb}{0.1, 0.7, 0.1}
+
+% Misc
+\newcommand{\numcirc}[1]{\ensuremath{\mathbin{\settowidth{\dimen7}{%
+\mbox{\Large $\bigcirc$}}\makebox[0pt][l]{\color{blue}\Large
+$\bigcirc$}\makebox[\dimen7]{#1}}}}
+\newcommand{\numsqbrac}[1]{{[#1]}}
+\newcommand{\smiley}{\includegraphics[height=2ex]{images/smiley.pdf}}
+\newcommand{\frowny}{\includegraphics[height=2ex]{images/frowny.pdf}}
+
+%\setlength{\fboxrule}{0.3pt}
+%\setlength{\fboxsep}{1.5pt}
+%\setlength{\shadowsize}{1.7pt}
+
+%\newtheorem{theorem}{Theorem}[chapter]
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{definition}{Definition}[chapter]
+%\newtheorem{problem}{Problem}[chapter]
+%\newtheorem{facts}{Fact}[chapter]
+%\newtheorem{remark}{Remark}[chapter]
+%\newtheorem{example}{Example}[chapter]
+%\newtheorem{assumption}{Assumption}[chapter]
+%\newtheorem{beispiel}{Beispiel}[chapter]
+
+% figures
+\newcommand{\figpage}[3]{\begin{minipage}{#1}\begin{center}\includegraphics[#2]{#3}\end{center}\end{minipage}}
