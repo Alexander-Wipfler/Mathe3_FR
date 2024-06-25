@@ -160,6 +160,35 @@ gegen den Mittelwert des rechts- und linksseitigen Grenzwertes der Funktion an d
     \end{itemize}
 \end{frame}
 
+\section{Reelle Fourierreihen}
+
+\begin{frame}{\thesection .) Reelle Fourierreihen}
+    \begin{alertblock}{Bestimmung der Fourierkoeffizienten}
+        Die Koeffizienten $a_k$ und $b_k$ einer \emph{reellen Fourierreihe}
+        \[
+        f(t)=\frac{a_0}{2}+\suml_{k=1}^{\infty} a_k \cos k\omega_0 t +\suml_{k=1}^{\infty} b_k \sin k\omega_0 t \mitm \omega_0 =\frac{2\pi}{T}
+        \]
+        berechnen sich als
+        \begin{align*}
+            a_k &=\frac{2}{T}\intl_{t_0}^{t_0+T}f(t)\cos k\omega_0 t \diff t\\
+            b_k &=\frac{2}{T}\intl_{t_0}^{t_0+T}f(t)\sin k\omega_0 t \diff t\\
+        \end{align*}
+    \end{alertblock}
+    \begin{itemize}
+        \item \alert{Beispiel:} Bestimmen Sie die Fourierreihe für folgende Funktion:
+        \[
+        f(t)=\left\{\begin{array}{lll}
+            0,  &\text{für} & 0 \leq t < \pi \\
+            1,  &\text{für} & \pi \leq t < 2\pi
+        \end{array}     \right.
+        \]
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+            \draw [step = .5cm,gray] (0,0) grid (13,11);
+            \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{frame}
 
 %\begin{center}
 %\begin{tikzpicture}[scale = 1.4]
