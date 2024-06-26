@@ -1,0 +1,242 @@
+\documentclass[t,14pt]{beamer}
+
+%*****************************************************************************%
+\usepackage{Styles/stylesGeneral_JR01}
+\usepackage{Styles/stylesPresentation_JR01}
+\usepackage{german}
+\usepackage{amsmath}                                                          	% Zurücksetzen der Tabellen- und Abbildungsnummerierung je Sektion
+\usepackage{amssymb}															% erforderlich für mathbb Definitionsbereich Reeele Zahlen...
+
+
+
+\usepackage{babelbib}
+
+\usepackage{stackrel}
+\usepackage{array}
+
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes,arrows,arrows.meta,decorations,decorations.pathmorphing,decorations.pathreplacing,patterns,matrix}
+\usetikzlibrary{babel,angles,quotes,calc,intersections}
+
+
+
+%\usepgfplotslibrary{external} 
+%\tikzexternalize[prefix=temp_graphics/]
+
+\usepackage{geometry}
+\geometry{
+    paperwidth=210mm,
+    paperheight=297mm,
+    portrait,
+%    left=25mm,
+%    right=20mm,
+%    top=10mm,
+%    bottom=20mm
+}
+
+
+\usepackage[framemethod=default]{mdframed}
+\usepackage{hyperref}
+
+
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d\hspace{-1pt}}}	% Differentialzeichen
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
+\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
+\newcommand*\euler{\mathrm{e}} % Zahl e
+\newcommand{\vek}[1]{\textit{\textbf{#1}}}
+\newcommand{\vekgr}[1]{\mathit{\mathbf{#1}}}
+\newcommand{\Rg}{\textnormal{Rg}}
+\newcommand{\und}{\quad\textnormal{und}\quad}
+\newcommand{\mitm}{\quad\textnormal{mit}\quad}
+\newcommand{\fuer}{\quad\textnormal{für}\quad}
+\newcommand{\sonst}{\quad\textnormal{sonst}\quad}
+
+
+
+\input{Styles/stylesBeamer_JR01.tex}
+
+%*****************************************************************************%
+\title[]{Vorlesung Mathematik 3}
+\subtitle{Fourierreihen - Komplexe Darstellung}
+\author[]{Prof. Dr. A. Wipfler\\ E-Mail: \textcolor{blue}{wipfler@dhbw-ravensburg.de}}
+\institute[]{{\footnotesize Duale Hochschule Baden-W\"urttemberg, Ravensburg/Friedrichshafen}}
+\date[]{Ausgabestand: \today}
+\subject{Vorlesung Mathematik 3}
+
+%\pgfdeclareimage[height=0.5cm]{university-logo}{Styles/DHBW_Logo_lang_2022.png}
+%\logo{\pgfuseimage{university-logo}}
+
+%*****************************************************************************%
+\begin{document}
+
+%-----------------------------------------------------------------------------%
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+
+
+%-----------------------------------------------------------------------------%
+\begin{frame}{Inhalt der Vorlesung}
+
+
+Dieser Vorlesungsteil widmet sich den \emph{komplexen} Fourierreihen. Diese Reihenentwicklung dient dazu, \emph{periodische} Funktionen als 
+Überlagerung von komplexen Exponentialfunktionen darzustellen.
+\begin{enumerate}
+\item Sinus und Kosinus in komplexer Darstellung
+\item Komplexe Fourierreihen
+\item Gerade und ungerade Funktionen
+\end{enumerate}
+
+\end{frame}
+
+\section{Sinus, Kosinus komplex}
+\begin{frame}{\thesection .) Sinus, Kosinus in komplexer Darstellung}
+\begin{itemize}
+    \item Die Eulersche Identität stellt einen Zusammenhang zwischen Sinus, Kosinus und komplexen Exponentialfunktionen her 
+    \[
+    \euler^{j\omega t} = \cos \omega t+ j\sin\omega t
+    \]
+    \begin{center}
+    \begin{tikzpicture}[scale = 1.4]
+    \draw [step = .5cm,gray] (0,0) grid (13,18);
+    \end{tikzpicture}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+\section{Komplexe Fourierreihe}
+\begin{frame}{\thesection .) Komplexe Fourierreihe}
+    \begin{itemize}
+        \item Darstellung der Fourierreihe
+        \[
+        f(t)=\frac{a_0}{2} + \suml_{k=1}^{\infty} a_k\cos k\omega_0 t + \suml_{k=1}^{\infty} b_k\sin k\omega_0 t 
+        \]
+        \begin{center}
+        \begin{tikzpicture}[scale = 1.4]
+        \draw [step = .5cm,gray] (0,0) grid (13,16);
+        \end{tikzpicture}
+        \end{center}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\thesection .) Komplexe Fourierreihen}
+    \begin{itemize}
+        \begin{alertblock}{Komplexe Fourierreihe}
+            Eine periodische Funktion, welche die Dirichlet-Bedingungen erfüllt, kann als \emph{komplexe Fourierreihe} 
+            \[
+            f(t)= \suml_{k=-\infty}^{\infty} c_k\euler^{jk\omega_0 t}
+            \]
+            dargestellt werden. Die Fourierkoeffizienten werden dabei wie folgt berechnet:
+            \[
+            c_k = \frac{1}{T}\intl_{t_0}^{t_0+T} f(t)\euler^{-k\omega_0 t}\diff t
+            \]
+            \end{alertblock}
+            \item \alert{Beispiel:} Bestimmen Sie die Fourierreihe für folgende Funktion (periodisch fortgesetzt):
+            \[
+            f(t)=\left\{\begin{array}{lll}
+                0,  &\text{für} & 0 \leq t < \pi \\
+                1,  &\text{für} & \pi \leq t < 2\pi
+            \end{array}     \right.
+            \]
+            \begin{center}
+                \begin{tikzpicture}[>=latex]
+                    %--- Koordinaten
+                    \draw [->] (-5,0) -- (5,0)      node [anchor = north west]{$t$};
+                    \draw [->] (0,0) -- (0,1.5)   node [anchor = south east]{$f(t)$};
+                    %--- Ticks
+                    \draw (0,1) -- (.1,1) node [anchor = west] {$1$};
+                    \foreach \x/\l in {-4/$-2\pi$,-2/$-\pi$,0/$0$,2/$\pi$,4/$2\pi$}
+                        \draw (\x,0) -- (\x,-.1) node [anchor = north] {\l};
+                    %--- Funktion
+                    \draw [very thick, blue] (-5,1) -- (-4,1) -- (-4,0) -- (-2,0) -- (-2,1) -- (0,1) -- (0,0) -- (2,0) -- (2,1) -- (4,1) -- (4,0) -- (4.5,0);
+                \end{tikzpicture}
+            \end{center}
+            \begin{center}
+                \begin{tikzpicture}[scale = 1.4]
+                    \draw [step = .5cm,gray] (0,0) grid (13,10.5);
+                \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{frame}
+    
+    
+    
+    
+\begin{frame}{\thesection .) Komplexe Fourierreihen}
+        \begin{itemize}
+            \item \alert{Beispiel:} Bestimmen Sie die Fourierreihe für folgende Funktion (periodisch fortgesetzt):
+            \[
+            f(t)=\left\{\begin{array}{rll}
+                \sin t,     &\text{für} & 0 \leq t < \pi \\
+                -\sin t,    &\text{für} & \pi \leq t < 2\pi
+            \end{array}     \right.
+            \]
+            \begin{center}
+                \begin{tikzpicture}[>=latex]
+                    %--- Koordinaten
+                    \draw [->] (-5,0) -- (5,0)      node [anchor = north west]{$t$};
+                    \draw [->] (0,0) -- (0,1.5)   node [anchor = south east]{$f(t)$};
+                    %--- Ticks
+                    \draw (0,1) -- (.1,1) node [anchor = west] {$1$};
+                    \foreach \x/\l in {-4/$-2\pi$,-2/$-\pi$,0/$0$,2/$\pi$,4/$2\pi$}
+                        \draw (\x,0) -- (\x,-.1) node [anchor = north] {\l};
+                    %--- Funktion
+                    \foreach \t in {-4,0}
+                        \draw [very thick, blue,domain = \t:{\t+2}, samples = 200] plot (\x,{sin(\x*pi/2 r)});
+                    \foreach \t in {0,4}
+                        \draw [very thick, blue,domain = {\t-2}:\t, samples = 200] plot (\x,{-sin(\x*pi/2 r)});
+                    \draw [very thick, blue,domain = 4:5.2, samples = 200] plot (\x,{sin(\x*pi/2 r)});
+                    \draw [very thick, blue,domain = -5.2:-4, samples = 200] plot (\x,{-sin(\x*pi/2 r)});
+                \end{tikzpicture}
+            \end{center}
+            \begin{center}
+                \begin{tikzpicture}[scale = 1.4]
+                    \draw [step = .5cm,gray] (0,0) grid (13,15);
+                \end{tikzpicture}
+            \end{center}
+        \end{itemize}
+\end{frame}
+    
+\section{Gerade und ungerade Funktionen}
+    
+\begin{frame}{\thesection .) Gerade und ungerade Funktionen}
+        \begin{itemize}
+            \item \alert{Gerade Funktion:} 
+            \[
+            f(t)=f(-t)
+            \]
+            \begin{center}
+                \begin{tikzpicture}[scale = 1.4]
+                    \draw [step = .5cm,gray] (0,0) grid (13,8.5);
+                \end{tikzpicture}
+            \end{center}
+            \item \alert{Ungerade Funktion:} 
+            \[
+            f(t)=-f(-t)
+            \]
+            \begin{center}
+                \begin{tikzpicture}[scale = 1.4]
+                    \draw [step = .5cm,gray] (0,0) grid (13,8.5);
+                \end{tikzpicture}
+            \end{center}
+        \end{itemize}
+\end{frame}
+
+
+
+
+%\begin{center}
+%\begin{tikzpicture}[scale = 1.4]
+%\draw [step = .5cm,gray] (0,0) grid (13,14);
+%\end{tikzpicture}
+%\end{center}
+
+
+\end{document}
