@@ -1,0 +1,115 @@
+\documentclass[t,14pt]{beamer}
+
+%*****************************************************************************%
+\usepackage{Styles/stylesGeneral_JR01}
+\usepackage{Styles/stylesPresentation_JR01}
+\usepackage{german}
+\usepackage{amsmath}                                                          	% Zurücksetzen der Tabellen- und Abbildungsnummerierung je Sektion
+\usepackage{amssymb}															% erforderlich für mathbb Definitionsbereich Reeele Zahlen...
+
+
+
+\usepackage{babelbib}
+
+\usepackage{stackrel}
+\usepackage{array}
+
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes,arrows,arrows.meta,decorations,decorations.pathmorphing,decorations.pathreplacing,patterns,matrix}
+\usetikzlibrary{babel,angles,quotes,calc,intersections}
+
+
+
+%\usepgfplotslibrary{external} 
+%\tikzexternalize[prefix=temp_graphics/]
+
+\usepackage{geometry}
+\geometry{
+    paperwidth=210mm,
+    paperheight=297mm,
+    portrait,
+%    left=25mm,
+%    right=20mm,
+%    top=10mm,
+%    bottom=20mm
+}
+
+
+\usepackage[framemethod=default]{mdframed}
+\usepackage{hyperref}
+
+
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d\hspace{-1pt}}}	% Differentialzeichen
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
+\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
+\newcommand*\euler{\mathrm{e}} % Zahl e
+\newcommand{\vek}[1]{\textit{\textbf{#1}}}
+\newcommand{\vekgr}[1]{\mathit{\mathbf{#1}}}
+\newcommand{\Rg}{\textnormal{Rg}}
+\newcommand{\und}{\quad\textnormal{und}\quad}
+\newcommand{\mitm}{\quad\textnormal{mit}\quad}
+\newcommand{\fuer}{\quad\textnormal{für}\quad}
+\newcommand{\sonst}{\quad\textnormal{sonst}\quad}
+
+
+
+\input{Styles/stylesBeamer_JR01.tex}
+
+%*****************************************************************************%
+\title[]{Vorlesung Mathematik 3}
+\subtitle{Fouriertransformation}
+\author[]{Prof. Dr. A. Wipfler\\ E-Mail: \textcolor{blue}{wipfler@dhbw-ravensburg.de}}
+\institute[]{{\footnotesize Duale Hochschule Baden-W\"urttemberg, Ravensburg/Friedrichshafen}}
+\date[]{Ausgabestand: \today}
+\subject{Vorlesung Mathematik 3}
+
+%\pgfdeclareimage[height=0.5cm]{university-logo}{Styles/DHBW_Logo_lang_2022.png}
+%\logo{\pgfuseimage{university-logo}}
+
+%*****************************************************************************%
+\begin{document}
+
+%-----------------------------------------------------------------------------%
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+
+
+%-----------------------------------------------------------------------------%
+\begin{frame}{Inhalt der Vorlesung}
+
+
+Dieser Vorlesungsteil widmet sich den Fouriertransformationen. Diese erweiteren das Konzept der Fourierreihe
+auf transiente Funktionen, also solche, die nicht periodisch sind.
+\begin{enumerate}
+\item Periodendauer $T\to\infty$
+\item Spaltfunktion
+\item Faltung
+\item Differenziation und Integration
+\item Verschiebung
+\end{enumerate}
+
+\end{frame}
+
+\section{Transiente Funktionen}
+\begin{frame}{\thesection .) $T\to\infty$}
+
+\end{frame}
+
+
+
+
+%\begin{center}
+%\begin{tikzpicture}[scale = 1.4]
+%\draw [step = .5cm,gray] (0,0) grid (13,14);
+%\end{tikzpicture}
+%\end{center}
+
+
+\end{document}
