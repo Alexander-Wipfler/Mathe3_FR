@@ -14,6 +14,8 @@
 \usepackage{stackrel}
 \usepackage{array}
 
+\usepackage{trfsigns}
+
 \usepackage{tikz}
 \usepackage{circuitikz}
 \usetikzlibrary{shapes,arrows,arrows.meta,decorations,decorations.pathmorphing,decorations.pathreplacing,patterns,matrix}
@@ -99,9 +101,130 @@ auf transiente Funktionen, also solche, die nicht periodisch sind.
 
 \section{Transiente Funktionen}
 \begin{frame}{\thesection .) $T\to\infty$}
-
+\begin{itemize}
+    \item \emph{Komplexe Fourierreihe}
+    \begin{align*}
+        f(t)    &= \suml_{k=-\infty}^{\infty}c_k\euler^{jk\omega_0t}\\
+        c_k     &= \frac{1}{T}\intl_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\euler^{-jk\omega_0t}\diff t
+    \end{align*} 
+    \item Betrachtung für $T\to\infty$ unter Berücksichtigung von 
+    \[
+    \omega_0 = \frac{2\pi}{T}
+    \]
+    \begin{center}
+    \begin{tikzpicture}[scale = 1.4]
+    \draw [step = .5cm,gray] (0,0) grid (13,10);
+    \end{tikzpicture}
+    \end{center}
+\end{itemize}
+\begin{alertblock}{Fouriertransformation}
+    Die \emph{Fouriertransformation} ordnet einer Funktion $f(t)$ im Zeitbereich eine Funktion $F(j\omega)$ im 
+    Frequenzbereich zu.
+    \begin{align*}
+        F(j\omega)  &= \intl_{-\infty}^{\infty} f(t)\euler^{-j\omega t}\diff t                          &\text{Hintransformation}\\
+        f(t)        &= \frac{1}{2\pi}\intl_{-\infty}^{\infty}F(j\omega)\euler^{j\omega t}\diff\omega    &\text{Rücktransformation}
+    \end{align*}
+\end{alertblock}
 \end{frame}
 
+
+
+\section{Spaltfunktion}
+\begin{frame}{\thesection .) Spaltfunktion}
+\begin{center}
+    \begin{tikzpicture}[>=latex]
+        %--- Einlaufende Welle
+        \foreach \x in {-4,-3,-2,-1}
+        \draw [blue, thick] (\x,-2) -- (\x,2);
+        \draw [<->,blue] (-2,0) -- (-1,0) node [midway,anchor=south]{$\lambda$};
+        %--- Spalt
+        \draw [gray,->] (0,0) -- (0,.8) node [anchor = south east] {$x$}; 
+        \draw [very thick] (0,3) -- (0,1) node [anchor = west]{$\frac{D}{2}$}  (0,-1) node [anchor = west]{$-\frac{D}{2}$} -- (0,-3);
+        %--- Optische Achse
+        \draw [gray,dashed] (0,0) -- (5,0);
+        %--- Schirm
+        \draw [very thick] (5,-3) -- (5,3);
+        \draw [gray,->] (5.1,0) -- (5.1,2) node [anchor = west] {$\xi$};
+        %--- Beugungsmuster
+        \draw[thick, blue, domain = -3:-.0005, variable = \t,samples = 200] plot ({6+2*(sin(5*\t r)/(5*\t))},\t);
+        \draw[thick, blue, domain = .0005:3, variable = \t,samples = 200] plot ({6+2*(sin(5*\t r)/(5*\t))},\t);
+    \end{tikzpicture}
+\end{center}
+\begin{center}
+    \begin{tikzpicture}[scale = 1.4]
+    \draw [step = .5cm,gray] (0,0) grid (13,12);
+    \end{tikzpicture}
+\end{center}
+\begin{definition}
+    Die \emph{Spaltfunktion} (alternativ: \emph{Sinus cardinalis}) ist definiert als 
+    \[
+    \sinc (x)=\frac{\sin \pi x}{\pi x}
+    \]
+\end{definition}
+\end{frame}
+
+
+\section{Faltung}
+\begin{frame}{\thesection .) Faltung}
+    \begin{definition}
+        Die \emph{Faltung} zweier Funktionen $f(t)$ und $g(t)$ ist definiert als:
+        \[
+        f(t)*g(t) = g(t)*f(t) = \intl_{-\infty}^{\infty} f(\tau)g(t-\tau)\diff \tau
+        \]
+    \end{definition}
+    \begin{itemize}
+        \item Bestimmung der Fouriertransformation von $f(t)*g(t)$
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+            \draw [step = .5cm,gray] (0,0) grid (13,12);
+            \end{tikzpicture}
+        \end{center}
+    \end{itemize}
+    \begin{alertblock}{Faltungssatz}
+        Die Fouriertransformierte einer Faltung zweier Funktionen $f$ und $g$ entspricht dem \emph{Produkt} der beiden Fouriertransformierten
+        $F$ und $G$ der einzelnen Funktionen:
+        \begin{align*}
+            f\quad   &\laplace\quad F\\
+            g\quad   &\laplace\quad G\\
+            f*g\quad &\laplace\quad FG
+        \end{align*}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item \alert{Beispiel:} 
+        \begin{align*}
+            f(t)    &= \left\{\begin{array}{l}
+                1 \fuer -1\leq t \leq 2\\
+                0 \sonst
+            \end{array}  \right.\\
+            g(t)    &= \left\{\begin{array}{l}
+                1 \fuer -2 \leq t \leq 1\\
+                0 \sonst
+            \end{array} \right.
+        \end{align*}
+        \begin{center}
+            \begin{tikzpicture}[>=latex]
+                %--- Koordinatensystem
+                \draw [->] (-3,0)  -- (3.2,0)   node [anchor = north west]{$t$};
+                \draw [->] (0,-.2) -- (0,1.4) node [anchor = south east]{$f,g$};
+                %--- Ticks
+                \foreach \x in {-3,-2,...,3}
+                \draw (\x,0) -- (\x,-.2) node [anchor = north, font = \small] {$\x$};
+                %--- f(t)
+                \draw [red, thick] (-3,0) -- (-1,0) -- (-1,1) -- (2,1)node [anchor = south] {$f(t)$} -- (2,0) -- (2.8,0);
+                 %--- g(t)
+                 \draw [blue, thick] (-3,0) -- (-2,0) -- (-2,1) node [anchor = south] {$g(t)$} -- (1,1) -- (1,0) -- (2.8,0);
+            \end{tikzpicture}
+        \end{center}
+    \end{itemize}
+\end{frame}
+
+\section{Differenziation und Integration}
+
+
+\section{Verschiebung}
 
 
 
