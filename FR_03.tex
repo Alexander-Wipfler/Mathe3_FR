@@ -93,7 +93,7 @@ auf transiente Funktionen, also solche, die nicht periodisch sind.
 \item Periodendauer $T\to\infty$
 \item Spaltfunktion
 \item Faltung
-\item Differenziation und Integration
+\item Differenziation
 \item Verschiebung
 \end{enumerate}
 
@@ -192,7 +192,7 @@ auf transiente Funktionen, also solche, die nicht periodisch sind.
     \end{alertblock}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\thesection .) Faltung}
     \begin{itemize}
         \item \alert{Beispiel:} 
         \begin{align*}
@@ -221,17 +221,74 @@ auf transiente Funktionen, also solche, die nicht periodisch sind.
         \end{center}
         \begin{center}
             \begin{tikzpicture}[scale = 1.4]
-                \draw [step = .5cm,gray] (0,0) grid (13,15);
+                \draw [step = .5cm,gray] (0,0) grid (13,14);
             \end{tikzpicture}
         \end{center}
     \end{itemize}
 \end{frame}
 
-\section{Differenziation und Integration}
+\section{Differenziation}
+\begin{frame}{\thesection .) Differenziationn}
+    \begin{itemize}
+        \item Differenziation
+        \begin{align*}
+           \mathfrak{F}\left\{f(t) \right\} &= F(j\omega)\\
+           \mathfrak{F}\left\{\frac{\diff f(t)}{\diff t} \right\} &= ?
+        \end{align*} 
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+                \draw [step = .5cm,gray] (0,0) grid (13,13);
+            \end{tikzpicture}
+        \end{center}      
+    \end{itemize}
+    \begin{alertblock}{Differenziationssatz}
+       Ist $F(j\omega)=\mathfrak{F}\left\{f(t)\right\}$ die Fouriertransformierte der Funktion $f(t)$, so gilt für die Fouriertransformierte der Ableitung von $f(t)$:
+       \[
+        \mathfrak{F}\left\{ \frac{\diff f}{\diff t} \right\} = j\omega F(j\omega)
+       \]
+    \end{alertblock}
+\end{frame}
 
 
 \section{Verschiebung}
-
+\begin{frame}{\thesection .) Verschiebung}
+    \begin{itemize}
+        \item Verschiebung im Zeitbereich
+        \begin{align*}
+            f(t)\quad       &\laplace\quad F(j\omega)\\
+            f(t-t_0)\quad   &\laplace\quad ?
+        \end{align*}
+        \begin{center}
+            \begin{tikzpicture}[>=latex]
+                %--- Koordinaten
+                \draw [->] (-2,0) -- (5,0) node [anchor = north west]{$t$};
+                \draw [->] (0,-.2) node [anchor = north]{$0$} -- (0,2) node [anchor = south east]{$f(t)$};
+                \draw (2,-.2) node [anchor = north]{$t_0$} --(2,0);
+                %--- Funktion
+                \draw[very thick,blue,domain=-2:5,samples=200] plot (\x,{exp(-\x*\x)});
+                \draw [blue] (0,1) node [anchor = south west]{$f(t)$};
+                 %--- Funktion verschoben
+                 \draw[very thick,orange,domain=-2:5,samples=200] plot (\x,{exp(-(\x-2)*(\x-2))});
+                 \draw [orange] (2,1) node [anchor = south west]{$f(t-t_0)$};
+            \end{tikzpicture}
+        \end{center}
+        \begin{center}
+            \begin{tikzpicture}[scale = 1.4]
+                \draw [step = .5cm,gray] (0,0) grid (13,11);
+            \end{tikzpicture}
+        \end{center} 
+    \end{itemize}
+    \begin{alertblock}{Verschiebungssatz}
+        Ist die Fouriertransformierte einer Funktion $f(t)$ gegeben mit
+        \[
+        \mathfrak{F}\left\{f(t) \right\} = F(j\omega),
+        \]
+        so gilt für die um $t_0$ verschobene Funktion $f(t-t_0)$:
+        \[
+        \mathfrak{F}\left\{f(t-t_0) \right\} = \euler^{-j\omega t_0} F(j\omega).
+        \]
+    \end{alertblock}
+\end{frame}
 
 
 %\begin{center}
